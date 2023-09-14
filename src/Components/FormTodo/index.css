@@ -1,0 +1,206 @@
+.divShowAddTodo {
+  height: 90px;
+  width: 240px;
+  background-color: #021017;
+  display: flex;
+  z-index: 99999999;
+}
+.seila2 {
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+}
+.buttonShowTodo {
+  width: 50px;
+  border: none;
+  outline: none;
+  background-color: #2bfdbe;
+  font-size: 30px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s;
+  position: absolute;
+  height: 100%;
+  cursor: pointer;
+}
+.divShowAddTodo > div {
+  font-size: 20px;
+  padding: 0px 15px;
+  padding-left: 60px;
+  display: flex;
+  color: #2bfdbe;
+  align-items: center;
+  justify-content: center;
+  font-weight: 300;
+  text-align: center;
+}
+.divShowAddTodo:hover .buttonShowTodo {
+  width: 100%;
+  background-color: #2bdefd;
+}
+.activeForm {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.502);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: enterTodoForm 0.5s;
+  z-index: 99999999;
+}
+@keyframes enterTodoForm {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.formTodo {
+  width: 30%;
+  min-width: 400px;
+  height: 380px;
+  background-color: #021017;
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+.formTodo > div > h1 {
+  color: #2bfdbe;
+  font-weight: 300;
+}
+.formTodo form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+.formTodo form .input-block {
+  background-color: #021017;
+  position: relative;
+}
+.formTodo form .input-block label {
+  color: #2bdefd;
+  font-size: 14px;
+  font-weight: bold;
+  display: block;
+}
+.formTodo form .input-block input {
+  width: 100%;
+  height: 52px;
+  font-size: 20px;
+  color: #d7f9ff;
+  border: 0;
+  padding-left: 10px;
+  border-bottom: 1px solid #2bdefd;
+  background-color: #01080e;
+}
+.formTodo form .input-block textarea {
+  margin-top: 7px;
+  width: 100%;
+  height: 100px;
+  font-size: 20px;
+  color: #d7f9ff;
+  border: 0;
+  border-bottom: 1px solid #2bdefd;
+  background-color: #021017;
+  resize: none;
+  background-color: #01080e;
+  padding: 10px 10px 0 10px;
+}
+.input-block span {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  color: #2bdefd;
+  font-size: 13px;
+}
+.formTodo button {
+  width: 100%;
+  height: 52px;
+  background-color: #01080e;
+  border: none;
+  color: #2bdefd;
+  cursor: pointer;
+}
+.addNoteList {
+  position: relative;
+  font-size: 20px;
+}
+.addNoteList::before {
+  content: "+";
+  position: absolute;
+  width: 40px;
+  height: 100%;
+  left: 0;
+  color: #000;
+  background-color: #2bdefd;
+  transition: 0.9s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  top: 0;
+}
+.addNoteList:hover::before {
+  width: 100%;
+}
+@media (max-width: 450px) {
+  .formTodo{
+    padding: 20px 0;
+    min-width: 80%;
+    height: auto;
+  }
+  .formTodo > div > h1 {
+    font-size: 18px;
+  }
+   .formTodo form{
+    display: flex;
+    min-width: 100%;
+    justify-content: center;
+    align-items: center;
+   }
+  .formTodo form .input-block{
+    display: flex;
+    justify-content: center;
+    width: 90%;
+  }
+  .formTodo form .input-block input {
+    width: 100%;
+    height: 52px;
+    font-size: 15px;
+    color: #d7f9ff;
+    border: 0;
+    padding-left: 10px;
+    border-bottom: 1px solid #2bdefd;
+    background-color: #01080e;
+  }
+  .formTodo form .input-block textarea {
+    width: 100%;
+    height: 100px;
+    font-size: 15px;
+    color: #d7f9ff;
+    border: 0;
+    padding-left: 10px;
+    border-bottom: 1px solid #2bdefd;
+    background-color: #01080e;
+    padding-bottom: 10px;
+  }
+  .addNoteList{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 90%;
+  }
+}

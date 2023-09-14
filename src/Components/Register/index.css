@@ -1,0 +1,27 @@
+.form-box.register{
+  right: 0;
+  padding: 0 60px 0 40px;
+  animation:  loginLayout2 0.7s ease-in-out;
+}
+.info-text.register{
+  left: 0;
+  text-align: left;
+  padding: 0 150px 60px 40px;
+  animation:  loginLayout 0.7s ease-in-out;  
+}
+@keyframes loginLayout {
+  to {
+    transform: translateX(0);
+  }
+  from {
+    transform: translateX(-120%);
+  }
+}
+@keyframes loginLayout2 {
+  to {
+    transform: translateX(0);
+  }
+  from {
+    transform: translateX(120%);
+  }
+}
