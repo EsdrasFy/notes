@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import "./index.css";
 import { BiLockAlt, BiUser } from "react-icons/bi";
 import axios from "axios";
+
 function FormLogin({ ShowRegisterOrLogin }) {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+  const [loading, setLoading] = useState(false); // Inicialmente, o loading está desativado
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Ative o estado de loading ao enviar o formulário
     try {
       const response = await axios.post(
         "https://back-notes-fen6.onrender.com/req/login",
@@ -24,8 +27,11 @@ function FormLogin({ ShowRegisterOrLogin }) {
       localStorage.setItem("username", username);
     } catch (error) {
       console.error("Erro ao salvar:", error);
+    } finally {
+      setLoading(false);
     }
   };
+
   return (
     <>
       <div className="form-box login">
@@ -53,8 +59,9 @@ function FormLogin({ ShowRegisterOrLogin }) {
             <label>Password</label>
             <BiLockAlt className="iconLogin" />
           </div>
-          <button type="submit" className="submitLogin animation">
-            Sign Up
+          <button className="nada animation" type="submit" disabled={loading}>
+            {loading ? <span className="loading"></span> : <span>Enter</span>}
+            <i></i>
           </button>
           <div className="logreg-link animation">
             <p>

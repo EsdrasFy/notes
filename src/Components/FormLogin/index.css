@@ -1,16 +1,3 @@
-.submitLogin {
-  position: relative;
-  width: 100%;
-  height: 45px;
-  background-color: transparent;
-  border: 2px solid #2bfdbe;
-  outline: none;
-  border-radius: 40px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
-}
 .form-box .logreg-link {
   font-size: 14px;
   color: #fff;
@@ -41,12 +28,12 @@
   right: 0;
   text-align: right;
   padding: 0 40px 60px 150px;
-  animation:  loginLayout2 0.7s ease-in-out;
+  animation: loginLayout2 0.7s ease-in-out;
 }
 .wrapperLogin .form-box.login {
   left: 0;
   padding: 0 60px 0 40px;
-  animation:  loginLayout 0.7s ease-in-out;
+  animation: loginLayout 0.7s ease-in-out;
 }
 @keyframes loginLayout {
   to {
@@ -63,4 +50,98 @@
   from {
     transform: translateX(120%);
   }
+}
+.nada {
+  position: relative;
+  background-color: #2bfdbe;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.3em;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  transition: 0.3s linear;
+  width: 100% !important;
+  height: 50px;
+  outline: none;
+  border: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nada:hover {
+  color: #fff;
+  background: #2bfdbe;
+  box-shadow: 0 0  10px #2bfdbe;
+  font-size: 1.2em;
+}
+
+.nada::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background-color: #01080e;
+}
+
+.nada span {
+  position: relative;
+  z-index: 1;
+}
+
+.nada i {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.nada i::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 80%;
+  width: 10px;
+  height: 4px;
+  background-color: #01080e;
+  transform: translateX(-50%) skewX(325deg);
+  transition: 0.5s;
+}
+
+.nada:hover i:before {
+  width: 20px;
+  left: 20%;
+}
+
+.nada i::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  width: 10px;
+  height: 4px;
+  background-color: #01080e;
+  transform: translateX(-50%) skewX(325deg);
+  transition: 0.5s;
+}
+
+.nada:hover i::after {
+  width: 20px;
+  left: 80%;
+}
+.loading {
+    width: 30px;
+    height: 30px;
+    border: 4px solid #2bfdbe;
+    border-top: 4px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: block;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

@@ -9,6 +9,84 @@
   padding: 0 150px 60px 40px;
   animation:  loginLayout 0.7s ease-in-out;  
 }
+.nada2 {
+    position: relative;
+    background-color: #2bfdbe;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    transition: 0.7s;
+    outline: none;
+    border: none;
+    display: flex;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.nada2:hover {
+    color: var(--greenLigth);
+    background: #2bfdbe;
+    box-shadow: 0 0 5px #2bfdbe;
+    font-size: 1.4em;
+}
+
+.nada2::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background-color: #01080e;
+}
+
+.nada2 span {
+    position: relative;
+    z-index: 1;
+}
+
+.nada2 i {
+    position: absolute;
+    inset: 0;
+    display: block;
+}
+
+.nada2 i::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 80%;
+    width: 10px;
+    height: 4px;
+    background-color: #01080e;
+    transform: translateX(-50%) skewX(325deg);
+    transition: 0.5s;
+}
+
+.nada2:hover i:before {
+    width: 20px;
+    left: 20%;
+}
+
+.nada2 i::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    width: 10px;
+    height: 4px;
+    background-color: #01080e;
+    transform: translateX(-50%) skewX(325deg);
+    transition: 0.5s;
+}
+
+.nada2:hover i::after {
+    width: 20px;
+    left: 80%;
+}
 @keyframes loginLayout {
   to {
     transform: translateX(0);
@@ -24,4 +102,18 @@
   from {
     transform: translateX(120%);
   }
+}
+.loading {
+    width: 30px;
+    height: 30px;
+    border: 4px solid #2bfdbe;
+    border-top: 4px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: block;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
