@@ -6,11 +6,13 @@ import axios from "axios";
 function FormLogin({ ShowRegisterOrLogin }) {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
-  const [loading, setLoading] = useState(false); // Inicialmente, o loading está desativado
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Ative o estado de loading ao enviar o formulário
+    setLoading(true);
+
     try {
       const response = await axios.post(
         "https://back-notes-fen6.onrender.com/req/login",
@@ -26,7 +28,11 @@ function FormLogin({ ShowRegisterOrLogin }) {
       localStorage.setItem("tokenLogin", token);
       localStorage.setItem("username", username);
     } catch (error) {
-      console.error("Erro ao salvar:", error);
+      if (error.response && error.response.data && error.response.data.msg) {
+        setErrorMsg(error.response.data.msg);
+      } else {
+        console.log("Erro desconhecido:", error.message);
+      }
     } finally {
       setLoading(false);
     }
@@ -59,6 +65,7 @@ function FormLogin({ ShowRegisterOrLogin }) {
             <label>Password</label>
             <BiLockAlt className="iconLogin" />
           </div>
+          {errorMsg && <p className="error-message">{errorMsg}</p>}
           <button className="nada animation" type="submit" disabled={loading}>
             {loading ? <span className="loading"></span> : <span>Enter</span>}
             <i></i>

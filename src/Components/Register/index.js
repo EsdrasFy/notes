@@ -9,10 +9,13 @@ function Register({ ShowRegisterOrLogin }) {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false); // Adicione uma variável para controlar o envio
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const validateEmail = (email) => {
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return emailRegex.test(email);
+  };
 
   useEffect(() => {
-    // Quando isSubmitting for definido como false, reative o botão de registro
     if (!isSubmitting) {
       setLoading(false);
     }
@@ -20,13 +23,17 @@ function Register({ ShowRegisterOrLogin }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validateEmail(email)) {
+      setError("Email inválido.");
+      return;
+    }
+
     try {
       if (isSubmitting) {
-        // Se já estiver enviando, não faça nada
         return;
       }
 
-      setIsSubmitting(true); // Defina isSubmitting como true para bloquear envios adicionais
+      setIsSubmitting(true);
       setLoading(true);
 
       await axios.post("https://back-notes-fen6.onrender.com/register", {
@@ -75,6 +82,7 @@ function Register({ ShowRegisterOrLogin }) {
               required
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+              minLength={5}
             />
             <label>Username</label>
             <BiUser className="iconLogin" />
