@@ -48,10 +48,11 @@ function FormLogin({ ShowRegisterOrLogin }) {
               type="text"
               required
               name="username"
+              id="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
-            <label>Username</label>
+            <label  for="username" >Username</label>
             <BiUser className="iconLogin" />
           </div>
           <div className="input-box animation">
@@ -59,10 +60,11 @@ function FormLogin({ ShowRegisterOrLogin }) {
               type="password"
               required
               name="password"
+              id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <label>Password</label>
+            <label for="password">Password</label>
             <BiLockAlt className="iconLogin" />
           </div>
           {errorMsg && <p className="error-message">{errorMsg}</p>}

@@ -81,32 +81,36 @@ function Register({ ShowRegisterOrLogin }) {
               type="text"
               required
               value={username}
+              id="username"
               onChange={(e) => setUsername(e.target.value)}
               minLength={5}
             />
-            <label>Username</label>
+            <label for="username">Username</label>
             <BiUser className="iconLogin" />
           </div>
           <div className="input-box">
             <input
               type="text"
               required
+              id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <label>Email</label>
+            <label for="email">Email</label>
             <BiEnvelope className="iconLogin" />
           </div>
           <div className="input-box">
             <input
               type="password"
               required
+              id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <label>Password</label>
+            <label for="password">Password</label>
             <BiLockAlt className="iconLogin" />
           </div>
+          {error && <p className="error-message">{error}</p>}{" "}
           <button
             type="submit"
             className="nada2"
@@ -123,7 +127,6 @@ function Register({ ShowRegisterOrLogin }) {
               </>
             )}
           </button>
-          {error && <p className="error-message">{error}</p>}{" "}
           <div className="logreg-link">
             <p>
               Already have an account?{" "}

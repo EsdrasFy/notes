@@ -9,7 +9,7 @@ function Header() {
   return (
     <header>
       <div className="containerHeader">
-        <h1>BOM DIA, {username.toUpperCase()}!</h1>
+        <h1>HELLO, {username.toUpperCase()}!</h1>
         <h1>JUST LIST</h1>
         <div className="divButtonHeader">
           <button onClick={backLogin}>
