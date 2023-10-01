@@ -136,8 +136,11 @@
 .addNoteList {
   position: relative;
   font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.addNoteList::before {
+.addIcon{
   content: "+";
   position: absolute;
   width: 40px;
@@ -145,7 +148,7 @@
   left: 0;
   color: #000;
   background-color: #2bdefd;
-  transition: 0.9s;
+  transition: 0.6s ease-out;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -153,7 +156,7 @@
   font-size: 30px;
   top: 0;
 }
-.addNoteList:hover::before {
+.addNoteList:hover .addIcon{
   width: 100%;
 }
 @media (max-width: 450px) {

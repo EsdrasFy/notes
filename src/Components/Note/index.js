@@ -54,16 +54,16 @@ function Note({ title, notes, priority, id, handleDeletePost }) {
         onClick={(e) => handleEdit(e.target, priority)}
         spellCheck={false}
         autoFocus
-        maxLength={70}
+        maxLength={155}
       />
       <span>
         <FaExclamationTriangle className="priority" onClick={handlePriority} />
       </span>
       <span
         className={onPriority ? "maxLength" : "maxLength2"}
-        style={{ color: `${changedNote.length >= 70 ? "red" : "#2bfdbe"} ` }}
+        style={{ color: `${changedNote.length >= 155 ? "red" : "#2bfdbe"} ` }}
       >
-        {changedNote.length}/70
+        {changedNote.length}/155
       </span>
     </li>
   );

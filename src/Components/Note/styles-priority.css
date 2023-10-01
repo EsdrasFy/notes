@@ -6,7 +6,8 @@ li.notepad-priority div {
 li.notepad-priority {
   background: #064d52;
   box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.2);
-  padding: 20px 20px 10px 20px;
+  padding: 20px 20px 70px 20px;
+  height: 100%;
   position: relative;
 }
 
@@ -15,7 +16,7 @@ li.notepad-priority strong {
   font-size: 18px;
   color: #2bfdbe;
   font-weight: bold;
-  border-bottom: 2px solid #2bfdbe;
+  border-bottom: 1px solid #2bfdbe;
 }
 
 li.notepad-priority div div {
@@ -33,7 +34,8 @@ li.notepad-priority textarea {
   margin-top: 7px;
   margin-bottom: 5px;
   width: 100%;
-  max-height: 85px;
+  max-height: 140px;
+  height: 100%;
   font-size: 14px;
   color: #73d7e8;
   border: 0;

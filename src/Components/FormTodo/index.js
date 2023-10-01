@@ -8,25 +8,35 @@ function FormTodo({ setAllNotes, allNotes }) {
   const [title, setTitles] = useState("");
   const [noteAdd, setNoteAdd] = useState("");
   const [username] = useState(localStorage.getItem("username") || null);
+  const [loading, setLoading] = useState(false);
   const showFormTodo = () => {
     setActiveForm(!activeForm);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const resp = await axios.post(
-      `https://back-notes-fen6.onrender.com/notes/${username}`,
-      {
-        title: title,
-        note: noteAdd,
-        priority: false,
-      }
-    );
-    setNoteAdd("");
-    setTitles("");
-    console.log(noteAdd);
-    setAllNotes([...allNotes, resp.data]);
-    showFormTodo();
+
+    try {
+      setLoading(true);
+
+      const resp = await axios.post(
+        `https://back-notes-fen6.onrender.com/notes/${username}`,
+        {
+          title: title,
+          note: noteAdd,
+          priority: false,
+        }
+      );
+
+      setNoteAdd("");
+      setTitles("");
+      setAllNotes([...allNotes, resp.data]);
+      showFormTodo();
+    } catch (error) {
+      console.error("Error submitting the form:", error);
+    } finally {
+      setLoading(false);
+    }
   };
   const handleBackgroundClick = (e) => {
     if (e.target.className === "activeForm") {
@@ -81,16 +91,25 @@ function FormTodo({ setAllNotes, allNotes }) {
                 spellCheck={false}
                 value={noteAdd}
                 onChange={(e) => setNoteAdd(e.target.value)}
-                maxLength={70}
+                maxLength={155}
               ></textarea>
               <span
-                style={{ color: `${noteAdd.length >= 70 ? "red" : "#2bdefd"}` }}
+                style={{
+                  color: `${noteAdd.length >= 155 ? "red" : "#2bdefd"}`,
+                }}
               >
-                {noteAdd.length}/70
+                {noteAdd.length}/155
               </span>
             </div>
             <button type="submit" className="addNoteList">
-              ADD NOTE
+              {loading ? (
+                <span className="loading"></span>
+              ) : (
+                <span>ADD NEW TODO</span>
+              )}
+              <span className="addIcon">+</span>
+
+              <span></span>
             </button>
           </form>
         </div>
